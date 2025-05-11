@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint",
+    "lint:css": "stylelint \"src/**/*.scss\" --color",
+    "lint:css:fix": "stylelint \"src/**/*.scss\" --fix"
   },
   "private": true,
   "dependencies": {
@@ -28,12 +31,18 @@
     "@angular/cli": "^19.2.11",
     "@angular/compiler-cli": "^19.2.0",
     "@types/jasmine": "~5.1.0",
+    "angular-eslint": "19.4.0",
+    "eslint": "^9.26.0",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.7.2"
+    "stylelint": "^16.19.1",
+    "stylelint-config-standard-scss": "^15.0.0",
+    "stylelint-scss": "^6.12.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "8.32.0"
   }
 }
