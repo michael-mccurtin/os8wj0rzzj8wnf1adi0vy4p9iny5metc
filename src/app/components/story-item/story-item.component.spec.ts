@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { StoryItemComponent } from './story-item.component';
 import { Story } from '../../services/story.service';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('StoryItemComponent', () => {
   let component: StoryItemComponent;
@@ -20,8 +19,7 @@ describe('StoryItemComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      // import NoopAnimationsModule to disable StoryItem @fadeIn animations
-      imports: [StoryItemComponent, NoopAnimationsModule],
+      imports: [StoryItemComponent]
     });
 
     fixture = TestBed.createComponent(StoryItemComponent);

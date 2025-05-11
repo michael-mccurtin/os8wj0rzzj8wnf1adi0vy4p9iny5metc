@@ -1,7 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { trigger, transition, style, animate } from '@angular/animations';
 import {
   getTimeAgo,
   getStoryLink,
@@ -18,15 +17,7 @@ import { Story } from '../../services/story.service';
   standalone: true,
   imports: [CommonModule, MatCardModule],
   templateUrl: './story-item.component.html',
-  styleUrls: ['./story-item.component.scss'],
-  animations: [
-    trigger('fadeIn', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(10px)' }),
-        animate('300ms ease-out', style({ opacity: 1, transform: 'none' })),
-      ]),
-    ]),
-  ],
+  styleUrls: ['./story-item.component.scss']
 })
 export class StoryItemComponent implements OnChanges {
   @Input() story: Story | undefined;
