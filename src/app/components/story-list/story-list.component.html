@@ -1,0 +1,16 @@
+<ng-container *ngIf="stories?.length; else loading">
+  <div
+    [ngClass]="{ 'story-grid': view === 'grid', 'story-list': view === 'list' }"
+  >
+    <app-story-item
+      *ngFor="let story of stories; trackBy: trackById"
+      [story]="story"
+      [view]="view"
+    >
+    </app-story-item>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <app-story-item *ngFor="let _ of skeletonItems"></app-story-item>
+</ng-template>

@@ -1,0 +1,34 @@
+<div class="pagination-bar">
+  <div class="pagination-controls">
+    <div class="nav-row">
+      <button
+        mat-stroked-button
+        class="prev-btn"
+        (click)="prev.emit()"
+        [disabled]="currentPage === 0"
+      >
+        ← Previous
+      </button>
+      <span class="page-label"> {{ currentPage + 1 }}</span>
+      <button
+        mat-stroked-button
+        class="next-btn"
+        (click)="next.emit()"
+        [disabled]="(currentPage + 1) * pageSize >= totalStories"
+      >
+        Next →
+      </button>
+    </div>
+    <div class="home-row">
+      <button
+        mat-stroked-button
+        class="home-btn"
+        [disabled]="currentPage === 0"
+        (click)="goToStart.emit()"
+        class=""
+      >
+        ⤴ Home
+      </button>
+    </div>
+  </div>
+</div>

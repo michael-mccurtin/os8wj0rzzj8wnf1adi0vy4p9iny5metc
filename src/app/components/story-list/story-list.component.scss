@@ -1,0 +1,13 @@
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 0.1rem 1.2rem 0.1rem 1rem;
+  align-items: stretch; // force all cards to same row height
+}
+
+.story-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0.1rem 1.2rem 0.1rem 1rem;
+}

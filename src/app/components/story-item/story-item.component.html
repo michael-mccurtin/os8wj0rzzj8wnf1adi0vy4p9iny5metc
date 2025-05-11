@@ -1,0 +1,48 @@
+<ng-container *ngIf="story">
+  <mat-card @fadeIn class="story-card">
+    <div class="story-wrapper">
+      <div class="score-box">
+        <div class="score-value">{{ story.score }}</div>
+        <div class="score-label">
+          {{ story.score > 1 ? "points" : "point" }}
+        </div>
+      </div>
+
+      <div class="story-content">
+        <mat-card-title>
+          <img
+            [src]="'https://www.google.com/s2/favicons?domain=' + domain"
+            width="16"
+            height="16"
+            alt="Site favicon"
+          />
+          <a [href]="storyLink" target="_blank" rel="noopener">
+            {{ story.title }} <small>({{ domain }})</small>
+          </a>
+        </mat-card-title>
+
+        <mat-card-subtitle>
+          by
+          <a
+            [href]="'https://news.ycombinator.com/user?id=' + story.by"
+            target="_blank"
+            rel="noopener"
+          >
+            {{ story.by }}
+          </a>
+          ·
+          <a
+            [href]="'https://news.ycombinator.com/item?id=' + story.id"
+            target="_blank"
+            rel="noopener"
+          >
+            {{ story.descendants ?? 0 }}
+            {{ (story.descendants ?? 0) === 1 ? "comment" : "comments" }}
+          </a>
+          ·
+          {{ timeAgo }}
+        </mat-card-subtitle>
+      </div>
+    </div>
+  </mat-card>
+</ng-container>

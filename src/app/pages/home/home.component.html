@@ -1,0 +1,42 @@
+<article class="app-container">
+  <header class="navbar-container" role="banner">
+    <app-navbar
+      [viewMode]="viewMode"
+      (viewModeChange)="setViewMode($event)"
+      (toggleSelected)="loadStoryIds($event)"
+    >
+    </app-navbar>
+  </header>
+
+  <section
+    class="spinner-container"
+    *ngIf="isLoading"
+    role="status"
+    aria-live="polite"
+  >
+    <mat-spinner diameter="40"></mat-spinner>
+  </section>
+
+  <main class="story-container" *ngIf="loadingComplete" role="main">
+    <app-story-list
+      [stories]="stories$ | async"
+      [view]="viewMode"
+    ></app-story-list>
+  </main>
+
+  <footer
+    class="pagination-container"
+    *ngIf="loadingComplete"
+    role="contentinfo"
+  >
+    <app-pagination-bar
+      [currentPage]="currentPage"
+      [pageSize]="pageSize"
+      [totalStories]="storyIds.length"
+      (next)="nextPage()"
+      (prev)="prevPage()"
+      (goToStart)="goToStart()"
+    >
+    </app-pagination-bar>
+  </footer>
+</article>
