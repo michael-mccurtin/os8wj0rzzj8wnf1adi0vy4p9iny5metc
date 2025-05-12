@@ -1,59 +1,139 @@
-# HackerNewsApp
+# Hacker News v3.0
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
+A modern Angular redesign of the [Hacker News](https://news.ycombinator.com/) front page using the official [HackerNews API](https://github.com/HackerNews/API). The app is optimized for a clean user experience, responsive layout, and developer best practices.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- Browse **Top** and **New** stories
+- Toggle between **Grid** and **List** views
+- Fully **responsive layout**, optimized for mobile and desktop
+- Client-side **pagination** with sticky controls
+- Skeleton loader and error handling
+- Rich unit and e2e test coverage
+- Minimal, accessible UI with clear visual hierarchy
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Getting Started
 
-## Code scaffolding
+### Prerequisites
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Node.js (v18+ recommended)
+- Angular CLI (`npm install -g @angular/cli`)
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+### Install
 
 ```bash
-ng build
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Run the App
 
 ```bash
-ng test
+npm start
 ```
 
-## Running end-to-end tests
+Navigate to `http://localhost:4200` in your browser.
 
-For end-to-end (e2e) testing, run:
+---
+
+## Testing
+
+### Unit Tests
 
 ```bash
-ng e2e
+npm run test
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Runs Jasmine/Karma tests with live reload.
 
-## Additional Resources
+### End-to-End (E2E) with Playwright
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+npm run e2e
+```
+
+Playwright tests simulate UI flows like view toggling, pagination, and responsive behavior.
+
+---
+
+## Scripts
+
+| Script        | Description                            |
+|---------------|----------------------------------------|
+| `npm start`   | Run the dev server                     |
+| `npm run test`| Execute unit tests                     |
+| `npm run e2e` | Run Playwright e2e tests               |
+| `npm run lint`| Lint TS/HTML via Angular ESLint        |
+| `npm run lint:css`     | Lint all SCSS with Stylelint   |
+| `npm run lint:css:fix` | Auto-fix SCSS lint issues       |
+
+---
+
+## Tech Stack
+
+- **Angular 17**
+- **Angular Material** (CDK UI components)
+- **RxJS** for reactive data handling
+- **Playwright** for E2E testing
+- **Stylelint** + **Angular ESLint** for static analysis
+- SCSS for styling with mobile-first media queries
+
+---
+
+## Test Coverage
+
+```txt
+Statements   : 86.3% ( 189/219 )
+Branches     : 84.05% ( 58/69 )
+Functions    : 82.69% ( 43/52 )
+Lines        : 87.61% ( 184/210 )
+```
+
+> Code is type-safe and linted across TS/HTML/SCSS.
+
+---
+
+## Future Work
+
+- Add Reddit-style thumbnail or link preview
+- Add light/dark mode toggle
+- Add comments view per story
+- Add user profile views (`/user/:id`)
+- Mock API for e2e tests (for offline/CI reliability)
+- Add sorting & filtering (by score, time)
+- Improve accessibility & keyboard navigation
+- Add `@angular/animations` for list transitions (e.g. shake on refresh)
+
+---
+
+## Project Structure 
+
+```
+src/
+├── app/
+│   ├── components/    # Reusable UI blocks (Navbar, PaginationBar, StoryItem, etc.)
+│   ├── pages/         # Main HomeComponent page
+│   ├── services/      # StoryService (API logic)
+│   ├── utils/         # Helper functions (e.g., getTimeAgo)
+│   └── styles/        # Shared styles and theming
+```
+
+---
+
+## Assumptions
+
+- Only **Top** and **New** stories were required for this take-home.
+- Pagination is handled entirely client-side after fetching all IDs.
+- Only essential data fields (title, score, time, author) are shown in story cards (similar to the original Hacker News).
+- Fallbacks are in place if a story has no URL or the API fails.
+
+---
+
+## Notes
+
+- Built with accessibility, responsiveness, and extensibility in mind.
+- Fully typed (`no-explicit-any`), clean CSS.
+- Designed to be developer-friendly and easy to evolve.
+
+---
