@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "e2e": "playwright test",
     "lint": "ng lint",
     "lint:css": "stylelint \"src/**/*.scss\" --color",
     "lint:css:fix": "stylelint \"src/**/*.scss\" --fix"
@@ -22,6 +23,7 @@
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
+    "@playwright/test": "^1.52.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
