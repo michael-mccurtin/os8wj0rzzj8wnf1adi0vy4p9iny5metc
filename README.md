@@ -2,6 +2,8 @@
 
 A modern Angular redesign of the [Hacker News](https://news.ycombinator.com/) front page using the official [HackerNews API](https://github.com/HackerNews/API). The app is optimized for a clean user experience, responsive layout, and developer best practices.
 
+**Live Site:** [https://michael-mccurtin.github.io/os8wj0rzzj8wnf1adi0vy4p9iny5metc/](https://michael-mccurtin.github.io/os8wj0rzzj8wnf1adi0vy4p9iny5metc/)
+
 ## Features
 
 - Browse **Top** and **New** stories
