@@ -1,0 +1,33 @@
+<div class="navbar">
+  <div class="sitename">
+    <h2>hackernews</h2>
+  </div>
+
+  <mat-button-toggle-group
+    (change)="onToggleSelected($event.value)"
+    [value]="currentToggle"
+    appearance="legacy"
+  >
+    <mat-button-toggle value="top">Top</mat-button-toggle>
+    <mat-button-toggle value="new">New</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <div class="view-toggle">
+    <button
+      mat-icon-button
+      [color]="viewMode === 'grid' ? 'primary' : ''"
+      (click)="changeView('grid')"
+      aria-label="Grid view"
+    >
+      <mat-icon>view_module</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      [color]="viewMode === 'list' ? 'primary' : ''"
+      (click)="changeView('list')"
+      aria-label="List view"
+    >
+      <mat-icon>view_list</mat-icon>
+    </button>
+  </div>
+</div>
