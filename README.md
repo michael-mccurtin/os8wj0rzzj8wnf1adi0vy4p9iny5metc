@@ -8,7 +8,6 @@ A modern Angular redesign of the [Hacker News](https://news.ycombinator.com/) fr
 - Toggle between **Grid** and **List** views
 - Fully **responsive layout**, optimized for mobile and desktop
 - Client-side **pagination** with sticky controls
-- Skeleton loader and error handling
 - Rich unit and e2e test coverage
 - Minimal, accessible UI with clear visual hierarchy
 
@@ -72,7 +71,7 @@ Playwright tests simulate UI flows like view toggling, pagination, and responsiv
 
 ## Tech Stack
 
-- **Angular 17**
+- **Angular 19**
 - **Angular Material** (CDK UI components)
 - **RxJS** for reactive data handling
 - **Playwright** for E2E testing
@@ -96,14 +95,13 @@ Lines        : 87.61% ( 184/210 )
 
 ## Future Work
 
-- Add Reddit-style thumbnail or link preview
+- Add Reddit-style thumbnail or link preview for stories
 - Add light/dark mode toggle
 - Add comments view per story
 - Add user profile views (`/user/:id`)
-- Mock API for e2e tests (for offline/CI reliability)
+- Mock API for E2E tests (for offline/CI reliability)
 - Add sorting & filtering (by score, time)
 - Improve accessibility & keyboard navigation
-- Add `@angular/animations` for list transitions (e.g. shake on refresh)
 
 ---
 
@@ -126,6 +124,7 @@ src/
 - Only **Top** and **New** stories were required for this take-home.
 - Pagination is handled entirely client-side after fetching all IDs.
 - Only essential data fields (title, score, time, author) are shown in story cards (similar to the original Hacker News).
+    - User and comment links redirect to their counterparts on the live Hacker News site.
 - Fallbacks are in place if a story has no URL or the API fails.
 
 ---
@@ -137,3 +136,35 @@ src/
 - Designed to be developer-friendly and easy to evolve.
 
 ---
+
+## UI Screenshots
+
+### Desktop View
+
+- **Grid Layout**  
+  ![Desktop Grid](docs/screenshots/desktop_grid.png)
+
+- **List Layout**  
+  ![Desktop List](docs/screenshots/desktop_list.png)
+
+- **Loading State**  
+  ![Desktop Loading](docs/screenshots/desktop_loading.png)
+
+### Mobile (Galaxy S20)
+
+- **Layout**  
+  <img src="docs/screenshots/mobile_s20.png" alt="Mobile S20" width="50%">
+
+- **Loading State**  
+  <img src="docs/screenshots/mobile_s20_loading.png" alt="Mobile S20 Loading" width="50%">
+
+### Tablet (iPad)
+
+- **Grid Layout**  
+  <img src="docs/screenshots/tablet_ipad_grid.png" alt="Tablet Grid" width="50%">
+
+- **List Layout**  
+  <img src="docs/screenshots/tablet_ipad_list.png" alt="Tablet List" width="50%">
+
+- **Loading State**  
+  <img src="docs/screenshots/tablet_ipad_loading.png" alt="Tablet Loading" width="50%">
