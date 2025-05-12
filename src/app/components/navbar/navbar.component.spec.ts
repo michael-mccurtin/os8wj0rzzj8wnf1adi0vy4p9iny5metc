@@ -9,6 +9,7 @@ describe('NavbarComponent', () => {
   let fixture: ComponentFixture<NavbarComponent>;
 
   beforeEach(async () => {
+    // Configure testing module with required Angular Material modules and component
     await TestBed.configureTestingModule({
       imports: [
         NavbarComponent,
@@ -23,20 +24,23 @@ describe('NavbarComponent', () => {
     fixture.detectChanges();
   });
 
+  // Smoke test to verify component creation
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
   describe('changeView', () => {
+    // Should reject and not emit for invalid view mode inputs
     it('should not emit on invalid viewMode', () => {
       spyOn(component.viewModeChange, 'emit');
 
-      const invalidMode = 'table' as unknown as 'grid' | 'list'; // Lint-safe
+      const invalidMode = 'table' as unknown as 'grid' | 'list'; // type-safe bypass
       component.changeView(invalidMode);
 
       expect(component.viewModeChange.emit).not.toHaveBeenCalled();
     });
 
+    // Should avoid emitting when selected mode is same as current
     it('should not emit when view mode is unchanged', () => {
       spyOn(component.viewModeChange, 'emit');
       component.viewMode = 'grid';
@@ -46,6 +50,7 @@ describe('NavbarComponent', () => {
   });
 
   describe('onToggleSelected', () => {
+    // Should emit 'top' toggle when valid input received
     it('should emit valid toggle "top"', () => {
       spyOn(component.toggleSelected, 'emit');
       component.currentToggle = 'new';
@@ -53,6 +58,7 @@ describe('NavbarComponent', () => {
       expect(component.toggleSelected.emit).toHaveBeenCalledWith('top');
     });
 
+    // Should emit 'new' toggle when valid input received
     it('should emit valid toggle "new"', () => {
       spyOn(component.toggleSelected, 'emit');
       component.currentToggle = 'top';
@@ -60,6 +66,7 @@ describe('NavbarComponent', () => {
       expect(component.toggleSelected.emit).toHaveBeenCalledWith('new');
     });
 
+    // Should not emit if toggle value is outside expected enum
     it('should not emit on invalid toggle', () => {
       spyOn(component.toggleSelected, 'emit');
 
